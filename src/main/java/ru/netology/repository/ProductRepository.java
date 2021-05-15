@@ -5,12 +5,8 @@ import ru.netology.domain.Product;
 import ru.netology.domain.Smartphone;
 
 public class ProductRepository {
-    Product[] items = {new Book(1, "Тарас Бульба", 100, "Гоголь"),
-            new Book(2, "Последний из могикан", 200, "Купер"),
-            new Book(3, "Дюна", 300, "Герберт"),
-            new Smartphone(4, "Iphone", 1000, "Apple"),
-            new Smartphone(5, "Galaxy Note 6", 400, "Samsung"),
-            new Smartphone(6, "Redmi 8", 700, "Xiaomi")};
+
+    Product[] items = new Product[0];
 
     public void save(Product item) {
         int length = items.length + 1;
