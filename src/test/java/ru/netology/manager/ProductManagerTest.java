@@ -81,4 +81,21 @@ class ProductManagerTest {
         Product[] actual = manager.searchBy("Apple");
         assertArrayEquals(expected, actual);
     }
+
+    @Test
+    void shouldSearchIfMoreThanOne() {
+        ProductRepository repository = new ProductRepository();
+        ProductManager manager = new ProductManager(repository);
+
+        manager.addProductToRepository(book1);
+        manager.addProductToRepository(book2);
+        manager.addProductToRepository(book3);
+        manager.addProductToRepository(smartphone1);
+        manager.addProductToRepository(smartphone2);
+        manager.addProductToRepository(smartphone3);
+
+        Product[] expected = new Product[]{smartphone2};
+        Product[] actual = manager.searchBy("Samsung");
+        assertArrayEquals(expected, actual);
+    }
 }
