@@ -16,6 +16,7 @@ class ProductManagerTest {
     Product smartphone1 = new Smartphone(4, "Iphone", 1000, "Apple");
     Product smartphone2 = new Smartphone(5, "Galaxy Note 6", 400, "Samsung");
     Product smartphone3 = new Smartphone(6, "Redmi 8", 700, "Xiaomi");
+    Product smartphone4 = new Smartphone(6, "Redmi 6", 500, "Xiaomi");
 
     @Test
     void shouldSearchByAuthor() {
@@ -93,9 +94,10 @@ class ProductManagerTest {
         manager.addProductToRepository(smartphone1);
         manager.addProductToRepository(smartphone2);
         manager.addProductToRepository(smartphone3);
+        manager.addProductToRepository(smartphone4);
 
-        Product[] expected = new Product[]{smartphone2};
-        Product[] actual = manager.searchBy("Samsung");
+        Product[] expected = new Product[]{smartphone3, smartphone4};
+        Product[] actual = manager.searchBy("Xiaomi");
         assertArrayEquals(expected, actual);
     }
 }
